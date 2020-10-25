@@ -1,0 +1,1 @@
+module.exports={mangouri:"mongodb+srv://vickydream:Vicky123@cluster0.4lpyd.mongodb.net/dreamdata?retryWrites=true&w=majority"}

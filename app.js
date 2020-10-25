@@ -20,10 +20,34 @@ app.post('/signUp',async(req,res)=>{
     }catch(error){
         res.json(error)
     }
-  
-  
-
 });
+//singIn services 
+app.post('/login',async(req,res)=>{
+    const {email,Password}=req.body;
+      try{
+        console.log('data',email)
+          let data=await User.findOne({email});
+         
+         if(data){
+            if(data.Password===Password){
+                res.json(data)
+            } 
+            else{
+                let errorPassword={error:"Entered password is invalid"}
+                res.json(errorPassword)
+            }
+         }
+         else{
+            let errorPassword={error:"Entered user is not available"}
+            res.json(errorPassword)
+         }
+      }catch(error){
+          res.json(error)
+      }
+    
+    
+  
+  });
 //Post req
 app.get('/getUser',async(req,res)=>{
    
